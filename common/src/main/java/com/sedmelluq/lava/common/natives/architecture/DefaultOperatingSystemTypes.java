@@ -2,6 +2,7 @@ package com.sedmelluq.lava.common.natives.architecture;
 
 public enum DefaultOperatingSystemTypes implements OperatingSystemType {
   LINUX("linux", "lib", ".so"),
+  FREEBSD("freebsd", "lib", ".so"),
   WINDOWS("win", "", ".dll"),
   DARWIN("darwin", "lib", ".dylib"),
   SOLARIS("solaris", "lib", ".so");
@@ -42,6 +43,8 @@ public enum DefaultOperatingSystemTypes implements OperatingSystemType {
       return SOLARIS;
     } else if (osFullName.toLowerCase().startsWith("linux")) {
       return LINUX;
+    } else if (osFullName.toLowerCase().startsWith("freebsd")) {
+      return FREEBSD;
     } else {
       throw new IllegalArgumentException("Unknown operating system: " + osFullName);
     }
